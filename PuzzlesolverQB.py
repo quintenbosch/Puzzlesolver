@@ -1,12 +1,14 @@
 #Import the necessary libraries
 import re
+import streamlit as st
 from simpleai.search import CspProblem, backtrack
 
+st.title("Puzzlesolver")
 #Print some text to indicate when and what to insert
-print("Enter your puzzle here... (like this: TO + GO = OUT)")
+st.text("Enter your puzzle here... (like this: TO + GO = OUT)")
 
 #Put the input in a variable 'puzzle', change all letters to uppercase and remove the spaces using the re library
-puzzle = input().upper()
+puzzle = st.text_input.upper()
 puzzle_no_spaces = re.sub(" ", "", puzzle)
 
 #Search the kind of method used
@@ -238,7 +240,7 @@ elif method == "/":
 
 #If no valid method was used we return "No valid method"
 else:
-  print("No valid method")
+  st.text("No valid method")
 
 
 #Use the CspProblem library and the backtrack library to solve the problem
@@ -258,10 +260,10 @@ if output:
     elif letter in ["+", "-", "*", "/", "=", " "]:
       solved_puzzle += letter
   #Print out the original and the converted one
-  print(puzzle, "->", solved_puzzle)
+  st.text(puzzle, "->", solved_puzzle)
   #Loop over all the keys in the solution and print their corresponding values
   for key in output:
-    print(key, "=", output[key])
+    st.text(key, "=", output[key])
 #When no solution is found, print "No solution found"
 else:
-  print("No solution found")
+  st.text("No solution found")
