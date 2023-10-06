@@ -1,14 +1,13 @@
 #Import the necessary libraries
-import re
+
 import streamlit as st
-from simpleai.search import CspProblem, backtrack
+
 
 st.title("Puzzlesolver")
-#Print some text to indicate when and what to insert
-st.text("Enter your puzzle here... (like this: TO + GO = OUT)")
 
 #Put the input in a variable 'puzzle', change all letters to uppercase and remove the spaces using the re library
-puzzle = st.text_input.upper()
+puzzle = st.text_input("Enter your puzzle here... (like this: TO + GO = OUT)")
+puzzle = puzzle.upper()
 puzzle_no_spaces = re.sub(" ", "", puzzle)
 
 #Search the kind of method used
