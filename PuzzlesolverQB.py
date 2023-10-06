@@ -1,7 +1,7 @@
 #Import the necessary libraries
 import re
 import streamlit as st
-from simpleai.search import CspProblem, backtrack
+import CspProblem, backtrack
 
 st.title("Puzzlesolver")
 
